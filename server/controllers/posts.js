@@ -10,9 +10,6 @@ export const getAllPosts = async (req, res) => {
     }
 }
 
-export const getOnePost = (req, res) => {
-    res.send('Get One Posts')
-}
 
 export const createPost = async (req, res) => {
     const post = req.body
@@ -55,7 +52,8 @@ export const likePost = async (req, res) => {
     
     const post = await Post.findById(id);
 
-    const updatedPost = await PostMessage.findByIdAndUpdate(id, { likeCount: post.likeCount + 1 }, { new: true });
+    const updatedPost = await Post.findByIdAndUpdate(id, { likeCount: post.likeCount + 1 }, { new: true });
     
     res.json(updatedPost);
 }
+

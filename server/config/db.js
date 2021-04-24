@@ -8,7 +8,8 @@ export const database = () => {
     mongoose.connect(DB_URL, {
         useUnifiedTopology:true,
         useNewUrlParser:true,
-        useCreateIndex:true
+        useCreateIndex:true,
+        useFindAndModify: true
     })
     .then(()=> {
         console.log('Database is running on ' + DB_URL)
